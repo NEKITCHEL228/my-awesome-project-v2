@@ -1,14 +1,26 @@
 const dlg = document.getElementById('contactDialog');
+const successDlg = document.getElementById('successDialog');
 const openBtn = document.getElementById('openDialog');
 const closeBtn = document.getElementById('closeDialog');
+const closeSuccessBtn = document.getElementById('closeSuccessDialog');
 const form = document.getElementById('contactForm');
+const sendBtn = document.getElementById('sendLetter')
 let lastActive = null;
+
+
 openBtn.addEventListener('click', () => {
     lastActive = document.activeElement;
     dlg.showModal(); // модальный режим + затемнение
     dlg.querySelector('input,select,textarea,button')?.focus();
 });
+
 closeBtn.addEventListener('click', () => dlg.close('cancel'));
+
+closeSuccessBtn.addEventListener('click', () => {
+    successDlg.close();
+    lastActive?.focus();
+});
+
 form?.addEventListener('submit', (e) => {
     // 1) Сброс кастомных сообщений
     [...form.elements].forEach(el => el.setCustomValidity?.(''));
@@ -33,5 +45,12 @@ form?.addEventListener('submit', (e) => {
     document.getElementById('contactDialog')?.close('success');
     form.reset();
 });
-dlg.addEventListener('close', () => { lastActive?.focus(); });
+
+dlg.addEventListener('close', () => { 
+    if (dlg.returnValue === 'success') {
+        // Если форма отправлена успешно, не возвращаем фокус
+        return;
+    }
+    lastActive?.focus(); 
+});
 // Esc по умолчанию вызывает событие 'cancel' и закрывает <dialog>
