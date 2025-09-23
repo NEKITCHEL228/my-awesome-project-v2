@@ -1,21 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Заголовок страницы" />
     <meta property="og:description" content="Описание страницы" />
     <meta property="og:image" content="https://.../link-to-image.jpg" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Главная - Название вашего сайта</title>
+    <meta
+      name="description"
+      content="Краткое описание главной страницы вашего сайта"
+    />
     <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Контакты - Название вашего сайта</title>
-    <meta name="description" content="Свяжитесь с нами" />
   </head>
   <body>
-<!-- Шапка сайта -->
+    <!-- Шапка сайта -->
     <header class="header">
-      <a href="/" class="nav_logo">Логотип или название сайта</a>
+      <h2><a class="nav_logo">Какой-то сайт...</a></h2>
       <!-- Главное меню навигации -->
       <nav class="nav">
         <ul>
@@ -25,9 +29,8 @@
         </ul>
       </nav>
 
-      <button class="theme-toggle" type="button" aria-pressed="false">
-        Тема
-      </button>
+      <button class="theme-toggle" type="button" aria-pressed="false">Тема</button>
+      
       <script defer>
         const KEY = "theme",
           btn = document.querySelector(".theme-toggle");
