@@ -12,7 +12,8 @@
   --space-2: 8px;
   --space-3: 16px;
   --space-4: 24px;
-  --space5: 40px;
+  --space-5: 32px;
+  --space-6: 40px;
 
   /* Скругления и тени */
   --radius: 12px;
@@ -50,13 +51,26 @@ body.theme-dark {
 .container {
   width: min(100% - 2 * var(--space-4), 1120px);
   margin-inline: auto;
+  margin-left: var(--space-6);
 }
 /* Вертикальные отступы секций по токенам */
 .section {
-  padding-block: var(--space-5);
+  padding-block: var(--space-6);
 }
-.section__title {
+.section_title {
   margin: 0 0 var(--space-3);
+}
+
+.header {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.15)), url("assets/hero_image.jpg") center/cover, no-repeat;
+  color: var(--color-fg);
+  padding: clamp(2rem, 6vw, 6rem) 1rem;
+  border-radius: var(--radius);
+}
+
+.theme_toggle{
+  border-radius: var(--radius);
+  margin-left: var(--space-2);
 }
 
 .card_img_slice {
@@ -69,45 +83,43 @@ body.theme-dark {
 }
 
 .hero {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.15)),
-    /* оверлей для контраста текста */ url("assets/hero_image_2.jpg")
-      center/cover no-repeat; /* картинка как декор */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.15)), url("assets/phone.jfif") center/cover no-repeat; 
   color: #fff;
   padding: clamp(2rem, 6vw, 6rem) 1rem; /* адаптивные отступы */
   border-radius: var(--radius);
 }
 
-.header {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.15)),
-    center/cover, no-repeat;
+
+
+.nav_link {
+  text-decoration: none;
   color: var(--color-fg);
-  padding: clamp(2rem, 6vw, 6rem) 1rem;
-  border-radius: var(--radius);
 }
 
-.nav{
- background: var(--color-bg);
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
-.nav_item{
-   background: var(--color-bg);
-}
+html {
+  scroll-behavior: smooth;
+} /* Плавная прокрутка к #якорю */
+:target {
+  outline: 2px dashed var(--color-primary);
+  outline-offset: 4px;
+} /*Подсветка цели */
 
-:where(a,button,input,select,textarea):focus-visible{
- outline:2px solid var(--color-primary);
- outline-offset:2px;  
-}
-
-html{ scroll-behavior:smooth; }  /* Плавная прокрутка к #якорю */
-:target{ outline:2px dashed var(--color-primary); outline-offset:4px; } /*Подсветка цели */
-
-.nav_link:hover{
+.nav_link:hover {
   background-color: var(--color-primary);
   color: var(--color-danger);
 }
 
 /* Недоступные элементы визуально «приглушаем» */
-:disabled,[aria-disabled="true"]{opacity:.6;cursor:not-allowed;}
+:disabled,
+[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 
 dialog {
   padding: 1.25rem;
