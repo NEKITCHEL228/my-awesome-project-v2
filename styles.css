@@ -12,7 +12,8 @@
   --space-2: 8px;
   --space-3: 16px;
   --space-4: 24px;
-  --space5: 40px;
+  --space-5: 32px;
+  --space-6: 40px;
 
   /* Скругления и тени */
   --radius: 12px;
@@ -50,13 +51,21 @@ body.theme-dark {
 .container {
   width: min(100% - 2 * var(--space-4), 1120px);
   margin-inline: auto;
+  margin-left: var(--space-6);
 }
 /* Вертикальные отступы секций по токенам */
 .section {
-  padding-block: var(--space-5);
+  padding-block: var(--space-6);
 }
-.section__title {
+.section_title {
   margin: 0 0 var(--space-3);
+}
+
+.header {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.15)), url("assets/hero_image.jpg") center/cover, no-repeat;
+  color: var(--color-fg);
+  padding: clamp(2rem, 6vw, 6rem) 1rem;
+  border-radius: var(--radius);
 }
 
 .theme_toggle{
@@ -80,12 +89,7 @@ body.theme-dark {
   border-radius: var(--radius);
 }
 
-.header {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.15)), url("assets/hero_image.jpg") center/cover, no-repeat;
-  color: var(--color-fg);
-  padding: clamp(2rem, 6vw, 6rem) 1rem;
-  border-radius: var(--radius);
-}
+
 
 .nav_link {
   text-decoration: none;
